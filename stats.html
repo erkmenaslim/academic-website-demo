@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Private dashboard: intentionally unlinked from the site and hidden from search engines. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Site stats — academic-website-demo</title>
+<style>
+  :root {
+    --bg: #14151a; --panel: #1d1f27; --line: #2c2f3a;
+    --text: #e8e9ee; --muted: #9aa0b0; --accent: #f4a01c; --good: #5dd39e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+    padding: 48px 20px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 32px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 28px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+  .card .n { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; }
+  .card .l { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .card .n.accent { color: var(--accent); }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin: 36px 0 12px; }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  th, td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+  th { color: var(--muted); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.8px; }
+  tr:last-child td { border-bottom: 0; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+  .note { color: var(--muted); font-size: 13.5px; margin-top: 28px; }
+  .err { color: #e07a7a; }
+  .btn {
+    display: inline-block; background: var(--accent); color: #14151a; font-weight: 700;
+    padding: 10px 18px; border-radius: 8px; margin-top: 6px;
+  }
+  .btn:hover { text-decoration: none; filter: brightness(1.08); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Site stats</h1>
+  <p class="sub">academic-website-demo — downloads, repo reach &amp; visitor analytics. Updated live from the GitHub API on every load.</p>
+
+  <div class="grid">
+    <div class="card"><div class="n accent" id="totalDownloads">…</div><div class="l">Skill downloads (all releases, all sources)</div></div>
+    <div class="card"><div class="n" id="stars">…</div><div class="l">GitHub stars</div></div>
+    <div class="card"><div class="n" id="forks">…</div><div class="l">Forks</div></div>
+  </div>
+
+  <h2>Downloads by release</h2>
+  <div id="releases"><div class="panel" id="releasesMsg">Loading…</div></div>
+
+  <h2>Visitors</h2>
+  <div class="panel">
+    Pageviews, referrers, and per-page traffic live in the GoatCounter dashboard (login required —
+    only you can see it).
+    <br><a class="btn" href="https://erkmenaslim.goatcounter.com" target="_blank" rel="noopener">Open GoatCounter dashboard →</a>
+    <br><br><span style="color:var(--muted); font-size:13.5px;">On-site download clicks show up there as the events
+    <b>skill-download-hero</b> and <b>skill-download-promo</b> — compare them with the totals above to see how many
+    downloads come from the site vs. the README or direct links.</span>
+  </div>
+
+  <h2>Git clones</h2>
+  <div class="panel" style="color:var(--muted); font-size:14.5px;">
+    People who install via <code>git clone</code> are counted in
+    <a href="https://github.com/erkmenaslim/academic-website-demo/graphs/traffic" target="_blank" rel="noopener">Insights → Traffic</a>
+    (requires your GitHub login; rolling 14-day window).
+  </div>
+
+  <p class="note">This page is not linked from the site and carries <code>noindex</code>. Everything it shows
+  comes from public GitHub APIs (the GoatCounter dashboard itself requires login), and it works equally well
+  opened straight from disk. Note GitHub's download counters can lag a few minutes behind an actual download.</p>
+</div>
+
+<script>
+  var REPO = 'erkmenaslim/academic-website-demo';
+
+  function set(id, v) { document.getElementById(id).textContent = v; }
+
+  fetch('https://api.github.com/repos/' + REPO, { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      set('stars', d.stargazers_count != null ? d.stargazers_count : '—');
+      set('forks', d.forks_count != null ? d.forks_count : '—');
+    })
+    .catch(function () { set('stars', '—'); set('forks', '—'); });
+
+  fetch('https://api.github.com/repos/' + REPO + '/releases', { cache: 'no-store' })
+    .then(function (r) {
+      if (!r.ok) throw new Error('GitHub API error ' + r.status);
+      return r.json();
+    })
+    .then(function (releases) {
+      var total = 0, rows = '';
+      releases.forEach(function (rel) {
+        (rel.assets || []).forEach(function (a) {
+          total += a.download_count;
+          rows += '<tr><td><a href="' + rel.html_url + '" target="_blank" rel="noopener">' +
+                  (rel.name || rel.tag_name) + '</a></td><td>' + a.name + '</td><td>' +
+                  new Date(rel.published_at).toLocaleDateString() + '</td><td class="num">' +
+                  a.download_count.toLocaleString() + '</td></tr>';
+        });
+      });
+      set('totalDownloads', total.toLocaleString());
+      var box = document.getElementById('releases');
+      if (rows) {
+        box.innerHTML = '<table><thead><tr><th>Release</th><th>Asset</th><th>Published</th><th>Downloads</th></tr></thead><tbody>' + rows + '</tbody></table>';
+      } else {
+        document.getElementById('releasesMsg').textContent =
+          'No releases with assets yet — publish the skill zip as a release asset to start counting downloads here.';
+      }
+    })
+    .catch(function (e) {
+      set('totalDownloads', '—');
+      document.getElementById('releasesMsg').innerHTML =
+        '<span class="err">Could not load release data (' + e.message + '). Refresh to retry.</span>';
+    });
+</script>
+</body>
+</html>
