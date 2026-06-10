@@ -14,3 +14,6 @@ pass1.log
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Skill zip is published as a GitHub Release asset, not committed
+academic-website-builder-skill.zip

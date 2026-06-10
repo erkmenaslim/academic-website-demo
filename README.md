@@ -3,7 +3,7 @@
 **Turn a CV into a polished academic website in minutes — no frameworks, no servers, no web tooling.**
 
 [![View Live Demo](https://img.shields.io/badge/▶_View-Live_Demo-1F3A5F?style=for-the-badge)](https://erkmenaslim.github.io/academic-website-demo/)
-[![Download the Skill](https://img.shields.io/badge/⤓_Download-The_Skill-f4a01c?style=for-the-badge)](https://erkmenaslim.github.io/academic-website-demo/academic-website-builder-skill.zip)
+[![Download the Skill](https://img.shields.io/badge/⤓_Download-The_Skill-f4a01c?style=for-the-badge)](https://github.com/erkmenaslim/academic-website-demo/releases/latest/download/academic-website-builder-skill.zip)
 &nbsp;
 ![Built with Claude Code](https://img.shields.io/badge/Built_with-Claude_Code-6C5CE7)
 ![Python 3](https://img.shields.io/badge/Python-3.8%2B-blue)
@@ -24,7 +24,7 @@ This repo is **two things at once**:
 
 **Option 1 — Download the zip**
 
-→ **[academic-website-builder-skill.zip](https://erkmenaslim.github.io/academic-website-demo/academic-website-builder-skill.zip)**
+→ **[academic-website-builder-skill.zip](https://github.com/erkmenaslim/academic-website-demo/releases/latest/download/academic-website-builder-skill.zip)** *(always the latest release)*
 
 Unzip it and drop the `academic-website-builder/` folder into your Claude skills directory
 (`~/.claude/skills/`).
@@ -123,9 +123,11 @@ academic-website-demo/
 ├── templates/                 # the three theme templates
 ├── assets/                    # headshot / images
 ├── CV/                        # the demo CV (PDF), linked as the download
-├── academic-website-builder-skill.zip   # ⤓ the downloadable skill
 └── skill/academic-website-builder/       # the skill source (clone & install)
 ```
+
+The downloadable zip is published as a [GitHub Release asset](https://github.com/erkmenaslim/academic-website-demo/releases)
+(so every download is counted, from any source).
 
 ---
 

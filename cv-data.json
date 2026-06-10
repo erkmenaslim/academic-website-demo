@@ -58,7 +58,7 @@
     "kicker": "Built with Claude · Open source",
     "heading": "Built from a CV in minutes. Get the skill.",
     "blurb": "This whole site — all three designs — was generated from a CV by the Academic Website Builder, a skill for Claude Code. Hand it your CV, pick a design, and keep the site current by editing one file. Free and open source.",
-    "zip": "academic-website-builder-skill.zip",
+    "zip": "https://github.com/erkmenaslim/academic-website-demo/releases/latest/download/academic-website-builder-skill.zip",
     "repo": "https://github.com/erkmenaslim/academic-website-demo",
     "repo_git": "https://github.com/erkmenaslim/academic-website-demo.git"
   },
