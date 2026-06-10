@@ -1,6 +1,7 @@
 # Local tooling — not part of the published site
 .claude/
 Headshot/
+academic-website-builder-webinar-notes.md
 
 # LaTeX build artifacts
 *.aux
