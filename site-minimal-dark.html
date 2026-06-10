@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adam Smith — Professor of Economics</title>
+<meta name="description" content="Adam Smith, Professor of Economics at Stockholm University." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  /* ============ THEME 1 — MINIMAL DARK (twilight / iris) ============ */
+  :root {
+    --bg:        #13151c;   /* twilight charcoal, faintly blue */
+    --bg-2:      #181b24;   /* raised surface */
+    --bg-3:      #1e222e;
+    --ink:       #e9ebf3;
+    --muted:     #9aa0b3;
+    --faint:     #5d6379;
+    --line:      rgba(255,255,255,0.09);
+    --line-2:    rgba(255,255,255,0.05);
+    --accent:    #8b95f5;   /* iris / periwinkle */
+    --accent-hi: #aab3ff;
+    --accent-soft: rgba(139,149,245,0.13);
+    --warm:      #ffb38a;   /* warm coral, used only for featured/press */
+    --warm-soft: rgba(255,179,138,0.12);
+    --maxw: 1080px;
+    --display: 'Space Grotesk', system-ui, sans-serif;
+    --body: 'Inter', system-ui, sans-serif;
+    --mono: 'Space Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ---------- nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(19,21,28,0.78);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line-2);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-family: var(--display); font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
+  .brand b { color: var(--accent); }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a {
+    font-size: 14px; color: var(--muted); position: relative; padding: 4px 0;
+    transition: color .2s ease;
+  }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; right: 100%; bottom: -2px; height: 1.5px;
+    background: var(--accent); transition: right .25s ease;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-links a.active::after, .nav-links a:hover::after { right: 0; }
+  .menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--ink);
+    width: 40px; height: 40px; border-radius: 8px; cursor: pointer; font-size: 18px; }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 92px 0 64px; }
+  .hero-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 56px; align-items: center; }
+  .hero h1 {
+    font-family: var(--display); font-weight: 600; font-size: clamp(40px, 6.5vw, 68px);
+    line-height: 1.02; letter-spacing: -0.025em; margin: 18px 0 0;
+  }
+  .hero .role { font-size: 20px; color: var(--ink); margin-top: 18px; font-weight: 500; }
+  .hero .role span { color: var(--accent); }
+  .hero .blurb { color: var(--muted); margin-top: 18px; max-width: 46ch; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+  .chip {
+    font-size: 12.5px; color: var(--muted); border: 1px solid var(--line);
+    padding: 5px 11px; border-radius: 999px; background: var(--bg-2);
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px; font-size: 14.5px; font-weight: 500;
+    padding: 12px 20px; border-radius: 10px; cursor: pointer; transition: all .2s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary { background: var(--accent); color: #15131f; font-weight: 600; }
+  .btn-primary:hover { background: var(--accent-hi); transform: translateY(-1px); }
+  .btn-ghost { border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-hi); }
+
+  /* photo placeholder */
+  .portrait {
+    aspect-ratio: 4/5; border-radius: 16px; border: 1px solid var(--line);
+    background:
+      radial-gradient(120% 90% at 70% 10%, var(--accent-soft), transparent 60%),
+      linear-gradient(180deg, var(--bg-3), var(--bg-2));
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; position: relative; overflow: hidden;
+  }
+  .portrait .mono-init {
+    font-family: var(--display); font-weight: 700; font-size: 56px; color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .portrait .ph-note {
+    font-family: var(--mono); font-size: 11px; color: var(--faint); letter-spacing: 0.04em;
+    text-align: center; max-width: 80%; line-height: 1.5;
+  }
+  .portrait::after {
+    content: ""; position: absolute; inset: 12px; border: 1px dashed var(--line); border-radius: 10px;
+    pointer-events: none;
+  }
+  .portrait.has-photo { border: none; background: none; }
+  .portrait.has-photo::after { display: none; }
+  .portrait-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+  .contact-card .social { margin-top: 14px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .contact-card .social a { color: var(--accent-hi); font-family: var(--mono); font-size: 13px; }
+  .contact-card .social a:hover { color: var(--ink); }
+
+  /* ---------- section scaffolding ---------- */
+  section { padding: 70px 0; border-top: 1px solid var(--line-2); }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 38px; }
+  .sec-head h2 {
+    font-family: var(--display); font-weight: 600; font-size: clamp(26px, 3.6vw, 36px);
+    letter-spacing: -0.02em;
+  }
+  .sec-head .count { font-family: var(--mono); font-size: 13px; color: var(--faint); }
+  .lede { color: var(--muted); max-width: 64ch; font-size: 18px; }
+
+  /* ---------- featured research cards ---------- */
+  .featured-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 56px; }
+  .feat {
+    border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 20px;
+    background: linear-gradient(180deg, var(--bg-2), var(--bg)); position: relative;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .feat:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .feat .venue { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); }
+  .feat .year { float: right; font-family: var(--mono); font-size: 12px; color: var(--faint); }
+  .feat h3 { font-family: var(--display); font-weight: 500; font-size: 19px; line-height: 1.3;
+    margin: 12px 0 8px; letter-spacing: -0.01em; }
+  .feat .auth { font-size: 13.5px; color: var(--muted); }
+  .badge {
+    display: inline-block; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--warm); background: var(--warm-soft);
+    border: 1px solid rgba(255,179,138,0.25); padding: 3px 9px; border-radius: 999px; margin-top: 14px;
+  }
+
+  /* ---------- research ledger (signature) ---------- */
+  .group { margin-bottom: 40px; }
+  .group-label {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); padding-bottom: 12px; border-bottom: 1px solid var(--line); margin-bottom: 6px;
+    display: flex; justify-content: space-between;
+  }
+  .row {
+    display: grid; grid-template-columns: 64px 1fr; gap: 18px; padding: 16px 14px 16px 0;
+    border-bottom: 1px solid var(--line-2); position: relative; transition: background .2s ease;
+  }
+  .row:hover { background: var(--bg-2); }
+  .row::before {
+    content: ""; position: absolute; left: -2px; top: 16px; bottom: 16px; width: 2px;
+    background: var(--accent); opacity: 0; transition: opacity .2s ease;
+  }
+  .row:hover::before { opacity: 1; }
+  .row .yr { font-family: var(--mono); font-size: 13px; color: var(--faint); padding-top: 2px; padding-left: 8px; }
+  .row .title { font-weight: 500; font-size: 16.5px; line-height: 1.4; }
+  .row .title a:hover { color: var(--accent-hi); }
+  .row .meta { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+  .row .meta em { color: var(--ink); font-style: italic; }
+  .tag {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.04em; color: var(--warm);
+    border: 1px solid rgba(255,179,138,0.25); padding: 2px 7px; border-radius: 6px; margin-left: 8px;
+    white-space: nowrap; background: var(--warm-soft);
+  }
+
+  /* ---------- two-column blocks (teaching / about) ---------- */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 46px; }
+  .stack > * + * { margin-top: 14px; }
+  .mini-h { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .list-clean { list-style: none; }
+  .list-clean li { padding: 9px 0; border-bottom: 1px solid var(--line-2); font-size: 15.5px; }
+  .list-clean li span { color: var(--faint); font-family: var(--mono); font-size: 12px; display: block; margin-top: 2px; }
+
+  /* ---------- media strip ---------- */
+  .media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .media-item { display: flex; gap: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--bg-2); transition: border-color .2s ease; }
+  .media-item:hover { border-color: var(--accent); }
+  .media-item .outlet { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); white-space: nowrap; padding-top: 2px; min-width: 84px; }
+  .media-item .head { font-size: 14.5px; line-height: 1.4; color: var(--ink); }
+  .media-item .date { font-size: 12px; color: var(--faint); margin-top: 3px; }
+
+  /* ---------- contact ---------- */
+  .contact-card {
+    border: 1px solid var(--line); border-radius: 18px; padding: 44px;
+    background: radial-gradient(130% 120% at 0% 0%, var(--accent-soft), transparent 55%), var(--bg-2);
+    display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center;
+  }
+  .contact-card h2 { font-family: var(--display); font-size: 30px; font-weight: 600; letter-spacing: -0.02em; }
+  .contact-card .addr { color: var(--muted); margin-top: 12px; font-size: 15px; line-height: 1.7; }
+  .contact-card a.email { color: var(--accent-hi); font-family: var(--mono); font-size: 15px; }
+
+  footer { padding: 40px 0 56px; border-top: 1px solid var(--line-2); color: var(--faint); font-size: 13px; }
+  .foot-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .foot-note { font-family: var(--mono); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 38px; }
+    .portrait { max-width: 280px; }
+    .featured-grid, .media-grid { grid-template-columns: 1fr; }
+    .cols { grid-template-columns: 1fr; gap: 34px; }
+    .contact-card { grid-template-columns: 1fr; padding: 30px; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0;
+      background: var(--bg-2); border-bottom: 1px solid var(--line); padding: 18px 28px; gap: 18px;
+    }
+    .menu-btn { display: block; }
+  }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 18px; }
+    .row { grid-template-columns: 52px 1fr; gap: 12px; }
+  }
+  :focus-visible { outline: 2px solid var(--accent-hi); outline-offset: 3px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">Adam <b>Smith</b></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#media">Media</a>
+      <a href="#contact">Contact</a>
+      <a href="CV/adam_smith_cv.pdf" class="cv">CV ↗</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" style="border-top:none;">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Public · Labor · Taxation</p>
+      <h1>Adam<br>Smith</h1>
+      <p class="role">Professor of Economics, <span>Stockholm University</span></p>
+      <p class="blurb">An economist studying taxation, inequality, and the welfare state — published in the AER, QJE, and JPE, and covered by The New York Times, the Financial Times, and The Economist.</p>
+      <div class="chips">
+        <span class="chip">CEPR</span><span class="chip">IZA</span><span class="chip">CESifo</span><span class="chip">Uppsala Center for Fiscal Studies</span><span class="chip">ERC Consolidator Grantee</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:adam.smith@su.se">✉ adam.smith@su.se</a>
+        <a class="btn btn-ghost" href="CV/adam_smith_cv.pdf">Download CV</a>
+      </div>
+    </div>
+    <div>
+      <div class="portrait">
+        
+        <div class="mono-init">AS</div>
+        <div class="ph-note">Add a headshot — set <b>site.photo</b> in cv-data.json</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">01</span><h2>About</h2></div>
+    <p class="lede">Adam Smith is a Professor of Economics at Stockholm University. He combines Swedish administrative register data with quasi-experimental and structural methods to study how tax and social-insurance policy shapes work, wealth, and inequality — from how people respond to marginal tax rates to the long-run effects of parental leave and the consequences of taxing wealth in an open economy. His work has appeared in the American Economic Review, the Quarterly Journal of Economics, the Journal of Political Economy, and Econometrica, and has been covered by The New York Times, the Financial Times, and The Economist.</p>
+    <div class="cols" style="margin-top:42px;">
+      <div>
+        <p class="mini-h">Where the work lands</p>
+        <p style="color:var(--muted);">Published in the American Economic Review, the Quarterly Journal of Economics, the Journal of Political Economy, Econometrica, and the Review of Economic Studies. Funded by the European Research Council and the Swedish Research Council; covered by The New York Times, the Financial Times, The Economist, and Bloomberg.</p>
+      </div>
+      <div>
+        <p class="mini-h">Education</p>
+        <ul class="list-clean">
+          <li>Ph.D., Economics — Massachusetts Institute of Technology <span>2011 · Solow Prize for Best Dissertation</span></li><li>M.Sc., Economics — London School of Economics <span>2006 · with Distinction</span></li><li>B.Sc., Economics — Stockholm University <span>2004 · summa cum laude</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">02</span><h2>Research</h2><span class="count">// peer-reviewed, working &amp; in progress</span></div>
+
+    <!-- featured -->
+    <div class="featured-grid">
+      <article class="feat">
+        <span class="venue">QJE</span><span class="year">2024</span>
+        <h3>Wealth Taxation and Capital Flight: Register Evidence from the Nordic Abolition</h3>
+        <p class="auth">with H. Berg &amp; M. Olsson</p>
+        <span class="badge">Covered by The Economist &amp; WSJ</span>
+      </article><article class="feat">
+        <span class="venue">AER</span><span class="year">2025</span>
+        <h3>Marginal Tax Rates and the Elasticity of Taxable Income: Evidence from a Swedish Reform</h3>
+        <p class="auth">with J. Lindqvist</p>
+        <span class="badge">Featured in The New York Times</span>
+      </article><article class="feat">
+        <span class="venue">JPE</span><span class="year">2023</span>
+        <h3>The Long-Run Effects of Parental Leave on Earnings and Fertility</h3>
+        <p class="auth">with S. Eriksson</p>
+        <span class="badge">Covered by the Financial Times</span>
+      </article><article class="feat">
+        <span class="venue">Econometrica</span><span class="year">2022</span>
+        <h3>Place-Based Subsidies and Local Labor Markets</h3>
+        <p class="auth">with L. Petersson</p>
+        <span class="badge">Covered by Bloomberg</span>
+      </article>
+    </div>
+
+    <div class="group">
+      <div class="group-label"><span>Under Revision</span><span>R&amp;R</span></div>
+      <div class="row"><div class="yr">R&amp;R</div><div><div class="title">Carbon Taxes, Commuting, and the Distribution of Welfare</div><div class="meta">with S. Eriksson &amp; C. Mendez · Revise &amp; resubmit · <em>American Economic Review</em></div></div></div>
+    </div>
+
+    <div class="group">
+      <div class="group-label"><span>Peer-Reviewed Articles</span><span>12</span></div>
+      <div class="row"><div class="yr">2024</div><div><div class="title">Wealth Taxation and Capital Flight: Register Evidence from the Nordic Abolition</div><div class="meta">with H. Berg &amp; M. Olsson · <em>Quarterly Journal of Economics, 139(2): 845–901</em><span class="tag">The Economist</span></div></div></div><div class="row"><div class="yr">2025</div><div><div class="title">Marginal Tax Rates and the Elasticity of Taxable Income: Evidence from a Swedish Reform</div><div class="meta">with J. Lindqvist · <em>American Economic Review, 115(4): 1102–1147</em><span class="tag">NYT</span></div></div></div><div class="row"><div class="yr">2023</div><div><div class="title">The Long-Run Effects of Parental Leave on Earnings and Fertility</div><div class="meta">with S. Eriksson · <em>Journal of Political Economy, 131(9): 2410–2458</em><span class="tag">Financial Times</span></div></div></div><div class="row"><div class="yr">2022</div><div><div class="title">Place-Based Subsidies and Local Labor Markets</div><div class="meta">with L. Petersson · <em>Econometrica, 90(6): 2733–2779</em><span class="tag">Bloomberg</span></div></div></div><div class="row"><div class="yr">2022</div><div><div class="title">Optimal Unemployment Insurance over the Business Cycle</div><div class="meta">with J. Lindqvist · <em>Review of Economic Studies, 89(3): 1455–1499</em></div></div></div><div class="row"><div class="yr">2021</div><div><div class="title">Inheritance, Mobility, and the Transmission of Wealth across Generations</div><div class="meta">with H. Berg · <em>Journal of Public Economics, 198</em></div></div></div><div class="row"><div class="yr">2020</div><div><div class="title">Minimum Wages and Firm Dynamics in Retail</div><div class="meta">with A. Nyberg &amp; C. Mendez · <em>American Economic Journal: Applied Economics, 12(4): 213–251</em><span class="tag">The Guardian</span></div></div></div><div class="row"><div class="yr">2019</div><div><div class="title">Tax Salience and Consumer Responses to Value-Added Taxation</div><div class="meta">with S. Eriksson · <em>Journal of Public Economics, 176: 32–49</em></div></div></div><div class="row"><div class="yr">2018</div><div><div class="title">Schooling, Skills, and the Gender Wage Gap in Sweden</div><div class="meta">with M. Olsson · <em>Labour Economics, 53: 88–106</em></div></div></div><div class="row"><div class="yr">2017</div><div><div class="title">Behavioral Responses to Pension Reform: Evidence from Notional Defined Contributions</div><div class="meta">with L. Petersson · <em>Journal of Human Resources, 52(3): 701–739</em></div></div></div><div class="row"><div class="yr">2016</div><div><div class="title">The Incidence of Payroll Taxes: Evidence from a Regional Discontinuity</div><div class="meta">sole author · <em>American Economic Journal: Economic Policy, 8(2): 1–34</em></div></div></div><div class="row"><div class="yr">2014</div><div><div class="title">Income Inequality and Intergenerational Mobility: A Cross-Country Perspective</div><div class="meta">with J. Lindqvist &amp; H. Berg · <em>Economic Journal, 124(577): 678–712</em></div></div></div>
+    </div>
+
+    <div class="group">
+      <div class="group-label"><span>Working Papers</span><span>4 · 1 NBER</span></div>
+      <div class="row"><div class="yr">33812</div><div><div class="title">Top Incomes and the Race between Education and Technology</div><div class="meta">with H. Berg · NBER WP 33812</div></div></div><div class="row"><div class="yr">CEPR</div><div><div class="title">Childcare Subsidies and Maternal Labor Supply: A Structural Evaluation</div><div class="meta">with S. Eriksson · CEPR Discussion Paper 19204</div></div></div><div class="row"><div class="yr">IZA</div><div><div class="title">Wealth Concealment and Enforcement: Evidence from the Panama Papers</div><div class="meta">with M. Olsson · IZA Discussion Paper 17455</div></div></div><div class="row"><div class="yr">2025</div><div><div class="title">The Geography of Social Mobility in Sweden</div><div class="meta">with L. Petersson</div></div></div>
+    </div>
+
+    <div class="group">
+      <div class="group-label"><span>In Progress</span><span>3</span></div>
+      <div class="row"><div class="yr">·</div><div><div class="title">Automation, Reallocation, and the Welfare State</div><div class="meta">with J. Lindqvist</div></div></div><div class="row"><div class="yr">·</div><div><div class="title">Universal Basic Income: Evidence from a Municipal Pilot</div><div class="meta">with A. Nyberg</div></div></div><div class="row"><div class="yr">·</div><div><div class="title">Tax Audits and Voluntary Compliance: A Field Experiment with the Swedish Tax Agency</div><div class="meta">data collection in progress</div></div></div>
+    </div>
+
+    
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">03</span><h2>Teaching &amp; Advising</h2></div>
+    <div class="cols">
+      <div>
+        <p class="mini-h">Courses at Stockholm University</p>
+        <ul class="list-clean">
+          <li>Public Economics (Ph.D.) <span>2021 – present</span></li><li>Empirical Methods in Economics (M.Sc.) <span>2021 – present</span></li><li>Labor Economics (M.Sc.) <span>SSE · Uppsala</span></li><li>Principles of Microeconomics (B.Sc.) <span>2021 – 2023</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="mini-h">Advising &amp; placements</p>
+        <ul class="list-clean">
+          <li>Emil Karlsson — Ph.D., primary advisor <span>2024 · Norwegian School of Economics (NHH)</span></li><li>Priya Nair — Ph.D., primary advisor <span>2023 · Ministry of Finance, Sweden</span></li><li>Tomas Andersson — Ph.D., primary advisor <span>2021 · IFAU</span></li><li>Eight dissertation committees — Committee member <span>Stockholm · SSE · Uppsala, 2017–present</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">04</span><h2>In the Media</h2></div>
+    <p class="lede" style="margin-bottom:34px;">Research that reaches beyond the journal — in the national press and in federal policy.</p>
+    <div class="media-grid">
+      <a class="media-item" href="#"><span class="outlet">The New York Times</span><span><span class="head">Does Taxing the Rich Drive Them Away? New Evidence Says No.</span><span class="date">March 2024</span></span></a><a class="media-item" href="#"><span class="outlet">The Economist</span><span><span class="head">The Nordic Wealth-Tax Experiment</span><span class="date">April 2024</span></span></a><a class="media-item" href="#"><span class="outlet">Financial Times</span><span><span class="head">Parental Leave Pays Off for Decades, Study Finds</span><span class="date">September 2023</span></span></a><a class="media-item" href="#"><span class="outlet">Bloomberg</span><span><span class="head">What Sweden Learned About Place-Based Subsidies</span><span class="date">July 2022</span></span></a><a class="media-item" href="#"><span class="outlet">The Guardian</span><span><span class="head">Why Higher Minimum Wages Didn&#x27;t Kill Retail Jobs</span><span class="date">May 2020</span></span></a><a class="media-item" href="#"><span class="outlet">Dagens Nyheter</span><span><span class="head">Forskaren som räknar på skatterna</span><span class="date">January 2025</span></span></a><a class="media-item" href="#"><span class="outlet">SVT Aktuellt</span><span><span class="head">Interview on tax reform (Swedish national television)</span><span class="date">November 2024</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <p class="eyebrow" style="margin-bottom:14px;">Get in touch</p>
+        <h2>Let's talk research.</h2>
+        <p class="addr">Department of Economics, Stockholm University<br>Universitetsvägen 10A, SE-106 91 Stockholm, Sweden</p>
+        <p style="margin-top:18px;"><a class="email" href="mailto:adam.smith@su.se">adam.smith@su.se</a></p>
+        <p class="social"><a href="https://www.su.se/english/profiles/adsm-economics">Website</a></p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a class="btn btn-primary" href="mailto:adam.smith@su.se">Email me</a>
+        <a class="btn btn-ghost" href="CV/adam_smith_cv.pdf">Full CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 Adam Smith</span>
+    <span class="foot-note">Stockholm University</span>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  var btn = document.getElementById('menuBtn');
+  var links = document.getElementById('navlinks');
+  btn.addEventListener('click', function () { links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { links.classList.remove('open'); });
+  });
+  // scroll-spy
+  var sections = ['about','research','teaching','media','contact'];
+  var navMap = {};
+  links.querySelectorAll('a').forEach(function (a) {
+    var id = a.getAttribute('href').replace('#','');
+    if (sections.indexOf(id) > -1) navMap[id] = a;
+  });
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          Object.values(navMap).forEach(function (a) { a.classList.remove('active'); });
+          if (navMap[e.target.id]) navMap[e.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function (id) { var el = document.getElementById(id); if (el) obs.observe(el); });
+  }
+</script>
+</body>
+</html>

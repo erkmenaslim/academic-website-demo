@@ -1,0 +1,18 @@
+# Local tooling — not part of the published site
+.claude/
+Headshot/
+
+# Demo CV v2 (the site links only to the main CV)
+CV/adam_smith_cv_v2.*
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+pass1.log
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
