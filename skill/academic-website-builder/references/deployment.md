@@ -38,9 +38,13 @@ No domain yet? Cloudflare Registrar (at-cost, ~$10/yr), Porkbun, or Namecheap ar
 
 ## Analytics (optional, privacy-friendly)
 
-Add a one-line snippet to the templates' `<head>` if they want visitor stats without cookies:
+**GoatCounter is built in** (free, open source, no cookies — so no consent banner needed): have them
+sign up at goatcounter.com, pick a site code, and set `site.goatcounter` to that code in `cv-data.json`,
+then rebuild. Every page then reports pageviews to their private dashboard at
+`https://<code>.goatcounter.com` (iframe loads, e.g. preview.html's embedded themes, are not counted).
+
+Alternatives, if they prefer (one-line snippet in the templates' `<head>`):
 - **Cloudflare Web Analytics** — free, no cookies.
-- **GoatCounter** — free, open source, tiny.
 - **Umami** — self-host for free, or hosted.
 
 ## "Just give me the files"

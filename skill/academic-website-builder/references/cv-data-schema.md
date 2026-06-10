@@ -14,6 +14,7 @@ fine in values (it's HTML-escaped automatically); do not put HTML tags in values
 | `site.cv_file` | path to the CV download (e.g. `CV/Name_CV.pdf`) |
 | `site.footer_year` | year shown in the footer |
 | `site.bio_use` | which bio to show: `short` \| `standard` \| `extended` |
+| `site.goatcounter` | optional GoatCounter code (the `code` in `https://code.goatcounter.com`) — adds privacy-friendly visitor analytics to every page; empty → no tracking script |
 | `name`, `first_name`, `last_name` | full name and its parts (parts drive the hero line break + brand) |
 | `title` | e.g. "Assistant Professor of Economics" |
 | `institution`, `institution_short` | e.g. "University of Vermont" / "UVM" |

@@ -380,5 +380,17 @@
     sections.forEach(function (id) { var el = document.getElementById(id); if (el) obs.observe(el); });
   }
 </script>
+
+<script>
+  // Skip inside iframes so preview.html's embedded themes aren't double-counted.
+  if (window.self === window.top) {
+    var gc = document.createElement('script');
+    gc.async = true;
+    gc.src = 'https://gc.zgo.at/count.js';
+    gc.setAttribute('data-goatcounter', 'https://erkmenaslim.goatcounter.com/count');
+    document.body.appendChild(gc);
+  }
+</script>
+
 </body>
 </html>

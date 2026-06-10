@@ -122,6 +122,7 @@ def prepare_context(raw):
     d["photo"] = site.get("photo", "")
     d["photo_alt"] = "%s, %s" % (raw.get("name", ""), raw.get("title", ""))
     d["has_photo"] = _truthy(site.get("photo", ""))
+    d["goatcounter"] = site.get("goatcounter", "")
     d["institution_short"] = raw.get("institution_short") or raw.get("institution", "")
     d["since"] = str(raw.get("since", ""))
 
