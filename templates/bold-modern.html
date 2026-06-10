@@ -57,6 +57,12 @@
   .hero::before { content: ""; position: absolute; top: -160px; right: -120px; width: 520px; height: 520px;
     background: radial-gradient(circle, rgba(244,160,28,0.16), transparent 62%); pointer-events: none; }
   .hero-inner { position: relative; }
+  .hero-inner.has-portrait { display: grid; grid-template-columns: minmax(0,1fr) 320px;
+    gap: 56px; align-items: center; }
+  .hero-portrait { border: 1px solid var(--gold); border-radius: 24px; padding: 8px;
+    background: var(--ink-2); box-shadow: 0 28px 70px rgba(0,0,0,.5); }
+  .hero-portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%;
+    border-radius: 16px; display: block; }
   .hero h1 { font-family: var(--disp); font-weight: 800; font-size: clamp(52px, 11vw, 138px);
     line-height: 0.92; letter-spacing: -0.035em; margin: 22px 0 0; }
   .hero h1 .amp { color: var(--gold); }
@@ -178,6 +184,8 @@
     .stat-strip .s:nth-child(2) { border-right: none; }
     .stat-strip .s:nth-child(1), .stat-strip .s:nth-child(2) { border-bottom: 1px solid var(--line-ink); }
     .about-grid, .feat-grid, .duo { grid-template-columns: 1fr; gap: 26px; }
+    .hero-inner.has-portrait { grid-template-columns: 1fr; gap: 30px; }
+    .hero-portrait { order: -1; max-width: 230px; }
     .media-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 74px; left: 0; right: 0;
@@ -213,15 +221,18 @@
 <main id="top">
 <!-- HERO -->
 <section class="hero" style="padding-bottom:0;">
-  <div class="wrap hero-inner">
-    <p class="kicker">{{tagline}}</p>
-    <h1>{{first_name}}<br>{{last_name}}</h1>
-    <p class="role">{{title}}, <b>{{institution}}</b></p>
-    <p class="blurb">{{bio_text}}</p>
-    <div class="hero-cta">
-      <a class="btn btn-gold" href="#research">Explore the research</a>
-      <a class="btn btn-line" href="mailto:{{email}}">✉ {{email}}</a>
+  <div class="wrap hero-inner{{#if has_photo}} has-portrait{{/if}}">
+    <div class="hero-text">
+      <p class="kicker">{{tagline}}</p>
+      <h1>{{first_name}}<br>{{last_name}}</h1>
+      <p class="role">{{title}}, <b>{{institution}}</b></p>
+      <p class="blurb">{{bio_text}}</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#research">Explore the research</a>
+        <a class="btn btn-line" href="mailto:{{email}}">✉ {{email}}</a>
+      </div>
     </div>
+    {{#if has_photo}}<div class="hero-portrait"><img src="{{photo}}" alt="{{photo_alt}}" /></div>{{/if}}
   </div>
   <div class="wrap">
     <div class="stat-strip">

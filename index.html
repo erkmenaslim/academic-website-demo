@@ -57,6 +57,12 @@
   .hero::before { content: ""; position: absolute; top: -160px; right: -120px; width: 520px; height: 520px;
     background: radial-gradient(circle, rgba(244,160,28,0.16), transparent 62%); pointer-events: none; }
   .hero-inner { position: relative; }
+  .hero-inner.has-portrait { display: grid; grid-template-columns: minmax(0,1fr) 320px;
+    gap: 56px; align-items: center; }
+  .hero-portrait { border: 1px solid var(--gold); border-radius: 24px; padding: 8px;
+    background: var(--ink-2); box-shadow: 0 28px 70px rgba(0,0,0,.5); }
+  .hero-portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%;
+    border-radius: 16px; display: block; }
   .hero h1 { font-family: var(--disp); font-weight: 800; font-size: clamp(52px, 11vw, 138px);
     line-height: 0.92; letter-spacing: -0.035em; margin: 22px 0 0; }
   .hero h1 .amp { color: var(--gold); }
@@ -178,6 +184,8 @@
     .stat-strip .s:nth-child(2) { border-right: none; }
     .stat-strip .s:nth-child(1), .stat-strip .s:nth-child(2) { border-bottom: 1px solid var(--line-ink); }
     .about-grid, .feat-grid, .duo { grid-template-columns: 1fr; gap: 26px; }
+    .hero-inner.has-portrait { grid-template-columns: 1fr; gap: 30px; }
+    .hero-portrait { order: -1; max-width: 230px; }
     .media-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 74px; left: 0; right: 0;
@@ -204,7 +212,7 @@
       <a href="#teaching">Teaching</a>
       <a href="#media">Media</a>
       <a href="#contact">Contact</a>
-      <a href="CV/adam_smith_cv.pdf" class="cv">CV</a>
+      <a href="CV/adam_smith_cv_2026.pdf" class="cv">CV</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
   </div>
@@ -213,19 +221,22 @@
 <main id="top">
 <!-- HERO -->
 <section class="hero" style="padding-bottom:0;">
-  <div class="wrap hero-inner">
-    <p class="kicker">Public · Labor · Taxation</p>
-    <h1>Adam<br>Smith</h1>
-    <p class="role">Professor of Economics, <b>Stockholm University</b></p>
-    <p class="blurb">Adam Smith is a Professor of Economics at Stockholm University. He combines Swedish administrative register data with quasi-experimental and structural methods to study how tax and social-insurance policy shapes work, wealth, and inequality — from how people respond to marginal tax rates to the long-run effects of parental leave and the consequences of taxing wealth in an open economy. His work has appeared in the American Economic Review, the Quarterly Journal of Economics, the Journal of Political Economy, and Econometrica, and has been covered by The New York Times, the Financial Times, and The Economist.</p>
-    <div class="hero-cta">
-      <a class="btn btn-gold" href="#research">Explore the research</a>
-      <a class="btn btn-line" href="mailto:adam.smith@su.se">✉ adam.smith@su.se</a>
+  <div class="wrap hero-inner has-portrait">
+    <div class="hero-text">
+      <p class="kicker">Public · Labor · Taxation</p>
+      <h1>Adam<br>Smith</h1>
+      <p class="role">Professor of Economics, <b>Stockholm University</b></p>
+      <p class="blurb">Adam Smith is a Professor of Economics at Stockholm University. He combines Swedish administrative register data with quasi-experimental and structural methods to study how tax and social-insurance policy shapes work, wealth, and inequality — from how people respond to marginal tax rates to the long-run effects of parental leave and the consequences of taxing wealth in an open economy. His work has appeared in the American Economic Review, the Quarterly Journal of Economics, the Journal of Political Economy, and Econometrica, and has been covered by The New York Times, the Financial Times, and The Economist.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#research">Explore the research</a>
+        <a class="btn btn-line" href="mailto:adam.smith@su.se">✉ adam.smith@su.se</a>
+      </div>
     </div>
+    <div class="hero-portrait"><img src="assets/adam-smith.jpg" alt="Adam Smith, Professor of Economics" /></div>
   </div>
   <div class="wrap">
     <div class="stat-strip">
-      <div class="s"><div class="n">12</div><div class="l">Peer-reviewed articles</div></div><div class="s"><div class="n">Top 5</div><div class="l">Published in AER, QJE, JPE &amp; Econometrica</div></div><div class="s"><div class="n">€3M+</div><div class="l">In competitive funding, incl. ERC Consolidator</div></div><div class="s"><div class="n">NYT · FT</div><div class="l">Covered by NYT, FT &amp; The Economist</div></div>
+      <div class="s"><div class="n">14</div><div class="l">Peer-reviewed &amp; forthcoming articles</div></div><div class="s"><div class="n">Top 5</div><div class="l">Published in AER, QJE, JPE &amp; Econometrica</div></div><div class="s"><div class="n">€3.5M+</div><div class="l">In competitive funding, incl. ERC Consolidator</div></div><div class="s"><div class="n">NYT · FT</div><div class="l">Covered by NYT, FT &amp; The Economist</div></div>
     </div>
   </div>
 </section>
@@ -233,7 +244,7 @@
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>QJE</span><span>AER</span><span>JPE</span><span>Econometrica</span><span>The New York Times</span><span>The Economist</span><span>Financial Times</span><span>Bloomberg</span><span>The Guardian</span><span>Dagens Nyheter</span><span>SVT Aktuellt</span><span>QJE</span><span>AER</span><span>JPE</span><span>Econometrica</span><span>The New York Times</span><span>The Economist</span><span>Financial Times</span><span>Bloomberg</span><span>The Guardian</span><span>Dagens Nyheter</span><span>SVT Aktuellt</span>
+    <span>QJE</span><span>AER</span><span>JPE</span><span>Econometrica</span><span>The Economist</span><span>Financial Times</span><span>The New York Times</span><span>Bloomberg</span><span>The Guardian</span><span>Dagens Nyheter</span><span>SVT Aktuellt</span><span>QJE</span><span>AER</span><span>JPE</span><span>Econometrica</span><span>The Economist</span><span>Financial Times</span><span>The New York Times</span><span>Bloomberg</span><span>The Guardian</span><span>Dagens Nyheter</span><span>SVT Aktuellt</span>
   </div>
 </div>
 
@@ -279,24 +290,21 @@
   <div class="wrap">
     <div class="sec-head"><p class="kicker">Publications</p><h2>The full record</h2></div>
 
-    <div class="listblock" style="margin-top:0;">
-      <div class="lb-head">Under Revision</div>
-      <div class="li"><div class="y">R&amp;R</div><div><div class="t">Carbon Taxes, Commuting, and the Distribution of Welfare</div><div class="m">with S. Eriksson &amp; C. Mendez · Revise &amp; resubmit · <i>American Economic Review</i></div></div></div>
+    
+
+    <div class="listblock">
+      <div class="lb-head">Peer-Reviewed Articles · 14</div>
+      <div class="li"><div class="y">2026</div><div><div class="t">Carbon Taxes, Commuting, and the Distribution of Welfare</div><div class="m">with S. Eriksson &amp; C. Mendez · forthcoming · <i>American Economic Review</i> <span class="pill">The Economist</span></div></div></div><div class="li"><div class="y">2026</div><div><div class="t">Means-Testing, Take-Up, and the Targeting of Transfers</div><div class="m">with J. Lindqvist · forthcoming · <i>American Economic Journal: Economic Policy</i></div></div></div><div class="li"><div class="y">2024</div><div><div class="t">Wealth Taxation and Capital Flight: Register Evidence from the Nordic Abolition</div><div class="m">with H. Berg &amp; M. Olsson · <i>Quarterly Journal of Economics, 139(2): 845–901</i> <span class="pill">The Economist</span></div></div></div><div class="li"><div class="y">2025</div><div><div class="t">Marginal Tax Rates and the Elasticity of Taxable Income: Evidence from a Swedish Reform</div><div class="m">with J. Lindqvist · <i>American Economic Review, 115(4): 1102–1147</i> <span class="pill">NYT</span></div></div></div><div class="li"><div class="y">2023</div><div><div class="t">The Long-Run Effects of Parental Leave on Earnings and Fertility</div><div class="m">with S. Eriksson · <i>Journal of Political Economy, 131(9): 2410–2458</i> <span class="pill">Financial Times</span></div></div></div><div class="li"><div class="y">2022</div><div><div class="t">Place-Based Subsidies and Local Labor Markets</div><div class="m">with L. Petersson · <i>Econometrica, 90(6): 2733–2779</i> <span class="pill">Bloomberg</span></div></div></div><div class="li"><div class="y">2022</div><div><div class="t">Optimal Unemployment Insurance over the Business Cycle</div><div class="m">with J. Lindqvist · <i>Review of Economic Studies, 89(3): 1455–1499</i></div></div></div><div class="li"><div class="y">2021</div><div><div class="t">Inheritance, Mobility, and the Transmission of Wealth across Generations</div><div class="m">with H. Berg · <i>Journal of Public Economics, 198</i></div></div></div><div class="li"><div class="y">2020</div><div><div class="t">Minimum Wages and Firm Dynamics in Retail</div><div class="m">with A. Nyberg &amp; C. Mendez · <i>American Economic Journal: Applied Economics, 12(4): 213–251</i> <span class="pill">The Guardian</span></div></div></div><div class="li"><div class="y">2019</div><div><div class="t">Tax Salience and Consumer Responses to Value-Added Taxation</div><div class="m">with S. Eriksson · <i>Journal of Public Economics, 176: 32–49</i></div></div></div><div class="li"><div class="y">2018</div><div><div class="t">Schooling, Skills, and the Gender Wage Gap in Sweden</div><div class="m">with M. Olsson · <i>Labour Economics, 53: 88–106</i></div></div></div><div class="li"><div class="y">2017</div><div><div class="t">Behavioral Responses to Pension Reform: Evidence from Notional Defined Contributions</div><div class="m">with L. Petersson · <i>Journal of Human Resources, 52(3): 701–739</i></div></div></div><div class="li"><div class="y">2016</div><div><div class="t">The Incidence of Payroll Taxes: Evidence from a Regional Discontinuity</div><div class="m">sole author · <i>American Economic Journal: Economic Policy, 8(2): 1–34</i></div></div></div><div class="li"><div class="y">2014</div><div><div class="t">Income Inequality and Intergenerational Mobility: A Cross-Country Perspective</div><div class="m">with J. Lindqvist &amp; H. Berg · <i>Economic Journal, 124(577): 678–712</i></div></div></div>
     </div>
 
     <div class="listblock">
-      <div class="lb-head">Peer-Reviewed Articles · 12</div>
-      <div class="li"><div class="y">2024</div><div><div class="t">Wealth Taxation and Capital Flight: Register Evidence from the Nordic Abolition</div><div class="m">with H. Berg &amp; M. Olsson · <i>Quarterly Journal of Economics, 139(2): 845–901</i> <span class="pill">The Economist</span></div></div></div><div class="li"><div class="y">2025</div><div><div class="t">Marginal Tax Rates and the Elasticity of Taxable Income: Evidence from a Swedish Reform</div><div class="m">with J. Lindqvist · <i>American Economic Review, 115(4): 1102–1147</i> <span class="pill">NYT</span></div></div></div><div class="li"><div class="y">2023</div><div><div class="t">The Long-Run Effects of Parental Leave on Earnings and Fertility</div><div class="m">with S. Eriksson · <i>Journal of Political Economy, 131(9): 2410–2458</i> <span class="pill">Financial Times</span></div></div></div><div class="li"><div class="y">2022</div><div><div class="t">Place-Based Subsidies and Local Labor Markets</div><div class="m">with L. Petersson · <i>Econometrica, 90(6): 2733–2779</i> <span class="pill">Bloomberg</span></div></div></div><div class="li"><div class="y">2022</div><div><div class="t">Optimal Unemployment Insurance over the Business Cycle</div><div class="m">with J. Lindqvist · <i>Review of Economic Studies, 89(3): 1455–1499</i></div></div></div><div class="li"><div class="y">2021</div><div><div class="t">Inheritance, Mobility, and the Transmission of Wealth across Generations</div><div class="m">with H. Berg · <i>Journal of Public Economics, 198</i></div></div></div><div class="li"><div class="y">2020</div><div><div class="t">Minimum Wages and Firm Dynamics in Retail</div><div class="m">with A. Nyberg &amp; C. Mendez · <i>American Economic Journal: Applied Economics, 12(4): 213–251</i> <span class="pill">The Guardian</span></div></div></div><div class="li"><div class="y">2019</div><div><div class="t">Tax Salience and Consumer Responses to Value-Added Taxation</div><div class="m">with S. Eriksson · <i>Journal of Public Economics, 176: 32–49</i></div></div></div><div class="li"><div class="y">2018</div><div><div class="t">Schooling, Skills, and the Gender Wage Gap in Sweden</div><div class="m">with M. Olsson · <i>Labour Economics, 53: 88–106</i></div></div></div><div class="li"><div class="y">2017</div><div><div class="t">Behavioral Responses to Pension Reform: Evidence from Notional Defined Contributions</div><div class="m">with L. Petersson · <i>Journal of Human Resources, 52(3): 701–739</i></div></div></div><div class="li"><div class="y">2016</div><div><div class="t">The Incidence of Payroll Taxes: Evidence from a Regional Discontinuity</div><div class="m">sole author · <i>American Economic Journal: Economic Policy, 8(2): 1–34</i></div></div></div><div class="li"><div class="y">2014</div><div><div class="t">Income Inequality and Intergenerational Mobility: A Cross-Country Perspective</div><div class="m">with J. Lindqvist &amp; H. Berg · <i>Economic Journal, 124(577): 678–712</i></div></div></div>
+      <div class="lb-head">Working Papers · 6</div>
+      <div class="li"><div class="y">CEPR</div><div><div class="t">Artificial Intelligence, Task Reallocation, and the Demand for Skills</div><div class="m">with A. Nyberg · CEPR Discussion Paper 20114</div></div></div><div class="li"><div class="y">IFAU</div><div><div class="t">Pension Wealth and Retirement Timing: Bunching Evidence from the Swedish NDC System</div><div class="m">with L. Petersson · IFAU Working Paper 2026:8</div></div></div><div class="li"><div class="y">33812</div><div><div class="t">Top Incomes and the Race between Education and Technology</div><div class="m">with H. Berg · NBER WP 33812</div></div></div><div class="li"><div class="y">CEPR</div><div><div class="t">Childcare Subsidies and Maternal Labor Supply: A Structural Evaluation</div><div class="m">with S. Eriksson · CEPR Discussion Paper 19204</div></div></div><div class="li"><div class="y">IZA</div><div><div class="t">Wealth Concealment and Enforcement: Evidence from the Panama Papers</div><div class="m">with M. Olsson · IZA Discussion Paper 17455</div></div></div><div class="li"><div class="y">2025</div><div><div class="t">The Geography of Social Mobility in Sweden</div><div class="m">with L. Petersson</div></div></div>
     </div>
 
     <div class="listblock">
-      <div class="lb-head">Working Papers · 4</div>
-      <div class="li"><div class="y">33812</div><div><div class="t">Top Incomes and the Race between Education and Technology</div><div class="m">with H. Berg · NBER WP 33812</div></div></div><div class="li"><div class="y">CEPR</div><div><div class="t">Childcare Subsidies and Maternal Labor Supply: A Structural Evaluation</div><div class="m">with S. Eriksson · CEPR Discussion Paper 19204</div></div></div><div class="li"><div class="y">IZA</div><div><div class="t">Wealth Concealment and Enforcement: Evidence from the Panama Papers</div><div class="m">with M. Olsson · IZA Discussion Paper 17455</div></div></div><div class="li"><div class="y">2025</div><div><div class="t">The Geography of Social Mobility in Sweden</div><div class="m">with L. Petersson</div></div></div>
-    </div>
-
-    <div class="listblock">
-      <div class="lb-head">In Progress · 3</div>
-      <div class="li"><div class="y">·</div><div><div class="t">Automation, Reallocation, and the Welfare State</div><div class="m">with J. Lindqvist</div></div></div><div class="li"><div class="y">·</div><div><div class="t">Universal Basic Income: Evidence from a Municipal Pilot</div><div class="m">with A. Nyberg</div></div></div><div class="li"><div class="y">·</div><div><div class="t">Tax Audits and Voluntary Compliance: A Field Experiment with the Swedish Tax Agency</div><div class="m">data collection in progress</div></div></div>
+      <div class="lb-head">In Progress · 4</div>
+      <div class="li"><div class="y">·</div><div><div class="t">The Distributional Consequences of Inflation Surges</div><div class="m">with M. Olsson</div></div></div><div class="li"><div class="y">·</div><div><div class="t">Automation, Reallocation, and the Welfare State</div><div class="m">with J. Lindqvist</div></div></div><div class="li"><div class="y">·</div><div><div class="t">Universal Basic Income: Evidence from a Municipal Pilot</div><div class="m">with A. Nyberg</div></div></div><div class="li"><div class="y">·</div><div><div class="t">Tax Audits and Voluntary Compliance: A Field Experiment with the Swedish Tax Agency</div><div class="m">data collection in progress</div></div></div>
     </div>
 
     
@@ -311,13 +319,13 @@
       <div class="tcard">
         <h3>Courses at Stockholm University</h3>
         <ul class="tlist">
-          <li>Public Economics (Ph.D.) <span>2021 – present</span></li><li>Empirical Methods in Economics (M.Sc.) <span>2021 – present</span></li><li>Labor Economics (M.Sc.) <span>SSE · Uppsala</span></li><li>Principles of Microeconomics (B.Sc.) <span>2021 – 2023</span></li>
+          <li>Public Economics (Ph.D.) <span>2021 – present</span></li><li>Empirical Methods in Economics (M.Sc.) <span>2021 – present</span></li><li>Topics in the Economics of Inequality (Ph.D.) <span>2026 – present</span></li><li>Labor Economics (M.Sc.) <span>SSE · Uppsala</span></li><li>Principles of Microeconomics (B.Sc.) <span>2021 – 2023</span></li>
         </ul>
       </div>
       <div class="tcard">
         <h3>Advising &amp; placements</h3>
         <ul class="tlist">
-          <li>Emil Karlsson — Ph.D., primary advisor <span>2024 · Norwegian School of Economics (NHH)</span></li><li>Priya Nair — Ph.D., primary advisor <span>2023 · Ministry of Finance, Sweden</span></li><li>Tomas Andersson — Ph.D., primary advisor <span>2021 · IFAU</span></li><li>Eight dissertation committees — Committee member <span>Stockholm · SSE · Uppsala, 2017–present</span></li>
+          <li>Lina Holm — Ph.D., primary advisor <span>expected 2027 · on the job market 2026–27</span></li><li>Emil Karlsson — Ph.D., primary advisor <span>2024 · Norwegian School of Economics (NHH)</span></li><li>Priya Nair — Ph.D., primary advisor <span>2023 · Ministry of Finance, Sweden</span></li><li>Tomas Andersson — Ph.D., primary advisor <span>2021 · IFAU</span></li><li>Ten dissertation committees — Committee member <span>Stockholm · SSE · Uppsala, 2017–present</span></li>
         </ul>
       </div>
     </div>
@@ -329,7 +337,7 @@
   <div class="wrap">
     <div class="sec-head"><p class="kicker">In the Media</p><h2>Beyond the journal</h2><p>Research in the national press — and cited where policy is made.</p></div>
     <div class="media-grid">
-      <a class="mcard" href="#"><div class="o">The New York Times</div><div class="h">Does Taxing the Rich Drive Them Away? New Evidence Says No.</div><div class="d">March 2024</div></a><a class="mcard" href="#"><div class="o">The Economist</div><div class="h">The Nordic Wealth-Tax Experiment</div><div class="d">April 2024</div></a><a class="mcard" href="#"><div class="o">Financial Times</div><div class="h">Parental Leave Pays Off for Decades, Study Finds</div><div class="d">September 2023</div></a><a class="mcard" href="#"><div class="o">Bloomberg</div><div class="h">What Sweden Learned About Place-Based Subsidies</div><div class="d">July 2022</div></a><a class="mcard" href="#"><div class="o">The Guardian</div><div class="h">Why Higher Minimum Wages Didn&#x27;t Kill Retail Jobs</div><div class="d">May 2020</div></a><a class="mcard" href="#"><div class="o">Dagens Nyheter</div><div class="h">Forskaren som räknar på skatterna</div><div class="d">January 2025</div></a><a class="mcard" href="#"><div class="o">SVT Aktuellt</div><div class="h">Interview on tax reform (Swedish national television)</div><div class="d">November 2024</div></a>
+      <a class="mcard" href="#"><div class="o">The Economist</div><div class="h">How Carbon Taxes Hit Commuters — and Who Really Pays</div><div class="d">May 2026</div></a><a class="mcard" href="#"><div class="o">Financial Times</div><div class="h">The Hidden Cost of Going Green for Rural Households</div><div class="d">April 2026</div></a><a class="mcard" href="#"><div class="o">The New York Times</div><div class="h">Does Taxing the Rich Drive Them Away? New Evidence Says No.</div><div class="d">March 2024</div></a><a class="mcard" href="#"><div class="o">The Economist</div><div class="h">The Nordic Wealth-Tax Experiment</div><div class="d">April 2024</div></a><a class="mcard" href="#"><div class="o">Financial Times</div><div class="h">Parental Leave Pays Off for Decades, Study Finds</div><div class="d">September 2023</div></a><a class="mcard" href="#"><div class="o">Bloomberg</div><div class="h">What Sweden Learned About Place-Based Subsidies</div><div class="d">July 2022</div></a><a class="mcard" href="#"><div class="o">The Guardian</div><div class="h">Why Higher Minimum Wages Didn&#x27;t Kill Retail Jobs</div><div class="d">May 2020</div></a><a class="mcard" href="#"><div class="o">Dagens Nyheter</div><div class="h">Forskaren som räknar på skatterna</div><div class="d">January 2025</div></a><a class="mcard" href="#"><div class="o">SVT Aktuellt</div><div class="h">Interview on tax reform (Swedish national television)</div><div class="d">November 2024</div></a>
     </div>
   </div>
 </section>
@@ -345,7 +353,7 @@
       <p class="social"><a href="https://www.su.se/english/profiles/adsm-economics">Website</a></p>
       <div class="contact-cta">
         <a class="btn btn-dark" href="mailto:adam.smith@su.se">Email me</a>
-        <a class="btn btn-outl" href="CV/adam_smith_cv.pdf">Download full CV</a>
+        <a class="btn btn-outl" href="CV/adam_smith_cv_2026.pdf">Download full CV</a>
       </div>
     </div>
   </div>

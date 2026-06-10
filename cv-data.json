@@ -1,8 +1,8 @@
 {
   "site": {
     "theme": "bold-modern",
-    "photo": "",
-    "cv_file": "CV/adam_smith_cv.pdf",
+    "photo": "assets/adam-smith.jpg",
+    "cv_file": "CV/adam_smith_cv_2026.pdf",
     "footer_year": "2026",
     "bio_use": "standard"
   },
@@ -41,7 +41,7 @@
   "bio": {
     "short": "Adam Smith is a Professor of Economics at Stockholm University working on public and labor economics, with a focus on taxation, inequality, and the welfare state.",
     "standard": "Adam Smith is a Professor of Economics at Stockholm University. He combines Swedish administrative register data with quasi-experimental and structural methods to study how tax and social-insurance policy shapes work, wealth, and inequality — from how people respond to marginal tax rates to the long-run effects of parental leave and the consequences of taxing wealth in an open economy. His work has appeared in the American Economic Review, the Quarterly Journal of Economics, the Journal of Political Economy, and Econometrica, and has been covered by The New York Times, the Financial Times, and The Economist.",
-    "extended": "Adam Smith is a Professor of Economics at Stockholm University, where he has taught since 2021 after positions at the Stockholm School of Economics and Uppsala University. His research sits at the intersection of public and labor economics: he uses Sweden's administrative registers, paired with quasi-experimental and structural methods, to measure how tax and transfer policy affects earnings, savings, and the distribution of income and wealth. Recent projects examine the elasticity of taxable income, capital flight after wealth-tax abolition, the decades-long effects of parental leave, and the welfare consequences of carbon taxation. His work has appeared in the American Economic Review, the Quarterly Journal of Economics, the Journal of Political Economy, Econometrica, and the Review of Economic Studies, and has been covered by The New York Times, the Financial Times, The Economist, and Bloomberg. His research is supported by a European Research Council Consolidator Grant and the Swedish Research Council. He is a Research Fellow of the CEPR and affiliated with IZA, CESifo, and the Uppsala Center for Fiscal Studies, and advises the Swedish Fiscal Policy Council."
+    "extended": "Adam Smith is a Professor of Economics at Stockholm University, where he has taught since 2021 after positions at the Stockholm School of Economics and Uppsala University. His research sits at the intersection of public and labor economics: he uses Sweden's administrative registers, paired with quasi-experimental and structural methods, to measure how tax and transfer policy affects earnings, savings, and the distribution of income and wealth. Recent projects examine the elasticity of taxable income, capital flight after wealth-tax abolition, the decades-long effects of parental leave, and the welfare consequences of carbon taxation. His work has appeared in the American Economic Review, the Quarterly Journal of Economics, the Journal of Political Economy, Econometrica, and the Review of Economic Studies, and has been covered by The New York Times, the Financial Times, The Economist, and Bloomberg. His research is supported by a European Research Council Consolidator Grant, the Swedish Research Council, and the Jan Wallander and Tom Hedelius Foundation. He is a Co-Editor of the Journal of Public Economics and an elected Fellow of the European Economic Association, a Research Fellow of the CEPR, and affiliated with IZA, CESifo, and the Uppsala Center for Fiscal Studies."
   },
 
   "about": {
@@ -59,13 +59,22 @@
   ],
 
   "stats": [
-    {"value": "12", "label": "Peer-reviewed articles"},
+    {"value": "14", "label": "Peer-reviewed & forthcoming articles"},
     {"value": "Top 5", "label": "Published in AER, QJE, JPE & Econometrica"},
-    {"value": "€3M+", "label": "In competitive funding, incl. ERC Consolidator"},
+    {"value": "€3.5M+", "label": "In competitive funding, incl. ERC Consolidator"},
     {"value": "NYT · FT", "label": "Covered by NYT, FT & The Economist"}
   ],
 
   "publications": [
+    {"type": "peer_reviewed", "marker": "2026", "year": "2026",
+     "title": "Carbon Taxes, Commuting, and the Distribution of Welfare",
+     "authors": "with S. Eriksson & C. Mendez", "note": "forthcoming",
+     "venue": "American Economic Review", "tag": "The Economist", "url": ""},
+    {"type": "peer_reviewed", "marker": "2026", "year": "2026",
+     "title": "Means-Testing, Take-Up, and the Targeting of Transfers",
+     "authors": "with J. Lindqvist", "note": "forthcoming",
+     "venue": "American Economic Journal: Economic Policy", "url": ""},
+
     {"type": "peer_reviewed", "featured": true, "marker": "2024", "year": "2024", "venue_short": "QJE",
      "title": "Wealth Taxation and Capital Flight: Register Evidence from the Nordic Abolition",
      "authors": "with H. Berg & M. Olsson", "venue": "Quarterly Journal of Economics, 139(2): 845–901",
@@ -109,11 +118,12 @@
      "title": "Income Inequality and Intergenerational Mobility: A Cross-Country Perspective",
      "authors": "with J. Lindqvist & H. Berg", "venue": "Economic Journal, 124(577): 678–712", "url": ""},
 
-    {"type": "under_revision", "marker": "R&R",
-     "title": "Carbon Taxes, Commuting, and the Distribution of Welfare",
-     "authors": "with S. Eriksson & C. Mendez", "note": "Revise & resubmit",
-     "venue": "American Economic Review", "url": ""},
-
+    {"type": "working_paper", "marker": "CEPR",
+     "title": "Artificial Intelligence, Task Reallocation, and the Demand for Skills",
+     "authors": "with A. Nyberg", "note": "CEPR Discussion Paper 20114", "venue": "", "url": ""},
+    {"type": "working_paper", "marker": "IFAU",
+     "title": "Pension Wealth and Retirement Timing: Bunching Evidence from the Swedish NDC System",
+     "authors": "with L. Petersson", "note": "IFAU Working Paper 2026:8", "venue": "", "url": ""},
     {"type": "working_paper", "marker": "33812",
      "title": "Top Incomes and the Race between Education and Technology",
      "authors": "with H. Berg", "note": "NBER WP 33812", "venue": "", "url": ""},
@@ -128,6 +138,9 @@
      "authors": "with L. Petersson", "note": "", "venue": "", "url": ""},
 
     {"type": "in_progress", "marker": "·",
+     "title": "The Distributional Consequences of Inflation Surges",
+     "authors": "with M. Olsson", "url": ""},
+    {"type": "in_progress", "marker": "·",
      "title": "Automation, Reallocation, and the Welfare State",
      "authors": "with J. Lindqvist", "url": ""},
     {"type": "in_progress", "marker": "·",
@@ -141,18 +154,22 @@
   "teaching": [
     {"course": "Public Economics (Ph.D.)", "terms": "2021 – present"},
     {"course": "Empirical Methods in Economics (M.Sc.)", "terms": "2021 – present"},
+    {"course": "Topics in the Economics of Inequality (Ph.D.)", "terms": "2026 – present"},
     {"course": "Labor Economics (M.Sc.)", "terms": "SSE · Uppsala"},
     {"course": "Principles of Microeconomics (B.Sc.)", "terms": "2021 – 2023"}
   ],
 
   "advising": [
+    {"name": "Lina Holm", "detail": "Ph.D., primary advisor", "note": "expected 2027 · on the job market 2026–27"},
     {"name": "Emil Karlsson", "detail": "Ph.D., primary advisor", "note": "2024 · Norwegian School of Economics (NHH)"},
     {"name": "Priya Nair", "detail": "Ph.D., primary advisor", "note": "2023 · Ministry of Finance, Sweden"},
     {"name": "Tomas Andersson", "detail": "Ph.D., primary advisor", "note": "2021 · IFAU"},
-    {"name": "Eight dissertation committees", "detail": "Committee member", "note": "Stockholm · SSE · Uppsala, 2017–present"}
+    {"name": "Ten dissertation committees", "detail": "Committee member", "note": "Stockholm · SSE · Uppsala, 2017–present"}
   ],
 
   "media": [
+    {"outlet": "The Economist", "headline": "How Carbon Taxes Hit Commuters — and Who Really Pays", "date": "May 2026", "url": ""},
+    {"outlet": "Financial Times", "headline": "The Hidden Cost of Going Green for Rural Households", "date": "April 2026", "url": ""},
     {"outlet": "The New York Times", "headline": "Does Taxing the Rich Drive Them Away? New Evidence Says No.", "date": "March 2024", "url": ""},
     {"outlet": "The Economist", "headline": "The Nordic Wealth-Tax Experiment", "date": "April 2024", "url": ""},
     {"outlet": "Financial Times", "headline": "Parental Leave Pays Off for Decades, Study Finds", "date": "September 2023", "url": ""},

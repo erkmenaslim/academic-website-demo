@@ -2,9 +2,6 @@
 .claude/
 Headshot/
 
-# Demo CV v2 (the site links only to the main CV)
-CV/adam_smith_cv_v2.*
-
 # LaTeX build artifacts
 *.aux
 *.log
