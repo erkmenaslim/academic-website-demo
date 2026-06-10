@@ -52,6 +52,16 @@
 
   "research_intro": "Empirical work on taxation, inequality, and the welfare state — published in the American Economic Review, the Quarterly Journal of Economics, the Journal of Political Economy, and Econometrica.",
 
+  "promo": {
+    "enabled": true,
+    "kicker": "Built with Claude · Open source",
+    "heading": "Built from a CV in minutes. Get the skill.",
+    "blurb": "This whole site — all three designs — was generated from a CV by the Academic Website Builder, a skill for Claude Code. Hand it your CV, pick a design, and keep the site current by editing one file. Free and open source.",
+    "zip": "academic-website-builder-skill.zip",
+    "repo": "https://github.com/erkmenaslim/academic-website-demo",
+    "repo_git": "https://github.com/erkmenaslim/academic-website-demo.git"
+  },
+
   "education": [
     {"degree": "Ph.D., Economics", "institution": "Massachusetts Institute of Technology", "year": "2011", "note": "Solow Prize for Best Dissertation"},
     {"degree": "M.Sc., Economics", "institution": "London School of Economics", "year": "2006", "note": "with Distinction"},

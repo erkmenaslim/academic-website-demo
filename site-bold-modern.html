@@ -99,6 +99,34 @@
   section { padding: 92px 0; }
   .band-ink { background: var(--ink); color: var(--on-ink); }
   .band-cream { background: var(--cream); }
+
+  /* ---------- skill promo band ---------- */
+  .btn-skill { border-color: var(--gold); color: var(--gold); }
+  .btn-skill:hover { background: var(--gold); color: var(--ink); transform: translateY(-2px); }
+  .promo { background: var(--ink); color: var(--on-ink); position: relative; overflow: hidden; }
+  .promo::before { content: ""; position: absolute; bottom: -180px; left: -120px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(244,160,28,0.14), transparent 62%); pointer-events: none; }
+  .promo-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 54px; align-items: center; position: relative; }
+  .promo h2 { font-family: var(--disp); font-weight: 700; font-size: clamp(30px, 4.4vw, 50px);
+    letter-spacing: -0.03em; line-height: 1.05; margin: 12px 0 16px; }
+  .promo .promo-lead { color: var(--on-ink-mute); font-size: 18px; max-width: 52ch; }
+  .promo-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+  .term { background: #0e0c09; border: 1px solid var(--line-ink); border-radius: 16px; overflow: hidden;
+    box-shadow: 0 28px 70px rgba(0,0,0,.5); }
+  .term-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+    background: rgba(255,255,255,0.04); border-bottom: 1px solid var(--line-ink); }
+  .term-dots { display: flex; gap: 7px; }
+  .term-dots i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .term-dots i:nth-child(1) { background: #e0654f; } .term-dots i:nth-child(2) { background: #e2b341; } .term-dots i:nth-child(3) { background: #6fae5f; }
+  .term-label { font-size: 12px; color: var(--on-ink-mute); letter-spacing: 0.04em; flex: 1; }
+  .copy-btn { background: transparent; border: 1px solid var(--line-ink); color: var(--on-ink-mute);
+    font-size: 12px; font-weight: 600; padding: 5px 13px; border-radius: 8px; cursor: pointer; transition: all .18s ease; }
+  .copy-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .term pre { margin: 0; padding: 20px; overflow-x: auto; }
+  .term code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13.5px;
+    line-height: 1.75; color: #e8e2d6; white-space: pre; }
+  .term .pfx { color: var(--gold); user-select: none; }
+  .term .cmt { color: #8a8170; }
   .sec-head { max-width: 64ch; margin-bottom: 46px; }
   .sec-head h2 { font-family: var(--disp); font-weight: 700; font-size: clamp(34px, 5.5vw, 60px);
     letter-spacing: -0.03em; line-height: 1.02; margin-top: 12px; }
@@ -186,6 +214,7 @@
     .about-grid, .feat-grid, .duo { grid-template-columns: 1fr; gap: 26px; }
     .hero-inner.has-portrait { grid-template-columns: 1fr; gap: 30px; }
     .hero-portrait { order: -1; max-width: 230px; }
+    .promo-grid { grid-template-columns: 1fr; gap: 30px; }
     .media-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 74px; left: 0; right: 0;
@@ -212,6 +241,7 @@
       <a href="#teaching">Teaching</a>
       <a href="#media">Media</a>
       <a href="#contact">Contact</a>
+      <a href="#skill">Get the Skill</a>
       <a href="CV/adam_smith_cv_2026.pdf" class="cv">CV</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
@@ -230,6 +260,7 @@
       <div class="hero-cta">
         <a class="btn btn-gold" href="#research">Explore the research</a>
         <a class="btn btn-line" href="mailto:adam.smith@su.se">✉ adam.smith@su.se</a>
+        <a class="btn btn-skill" href="academic-website-builder-skill.zip" download>⤓ Get the website skill</a>
       </div>
     </div>
     <div class="hero-portrait"><img src="assets/adam-smith.jpg" alt="Adam Smith, Professor of Economics" /></div>
@@ -262,6 +293,34 @@
     </div>
   </div>
 </section>
+
+<!-- SKILL PROMO -->
+
+<section id="skill" class="promo">
+  <div class="wrap promo-grid">
+    <div>
+      <p class="kicker">Built with Claude · Open source</p>
+      <h2>Built from a CV in minutes. Get the skill.</h2>
+      <p class="promo-lead">This whole site — all three designs — was generated from a CV by the Academic Website Builder, a skill for Claude Code. Hand it your CV, pick a design, and keep the site current by editing one file. Free and open source.</p>
+      <div class="promo-actions">
+        <a class="btn btn-gold" href="academic-website-builder-skill.zip" download>⤓ Download the skill (.zip)</a>
+        <a class="btn btn-line" href="https://github.com/erkmenaslim/academic-website-demo" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+    <div class="term" aria-label="Terminal commands to clone and install the skill">
+      <div class="term-head">
+        <span class="term-dots"><i></i><i></i><i></i></span>
+        <span class="term-label">clone &amp; install</span>
+        <button class="copy-btn" id="copyCmd" type="button" data-copy="git clone https://github.com/erkmenaslim/academic-website-demo.git&#10;cp -r academic-website-demo/skill/academic-website-builder ~/.claude/skills/">Copy</button>
+      </div>
+      <pre><code id="cmdText"><span class="cmt"># 1 — clone this repo</span>
+<span class="pfx">$</span> git clone https://github.com/erkmenaslim/academic-website-demo.git
+<span class="cmt"># 2 — drop the skill into Claude, then just ask Claude to build your site</span>
+<span class="pfx">$</span> cp -r academic-website-demo/skill/academic-website-builder ~/.claude/skills/</code></pre>
+    </div>
+  </div>
+</section>
+
 
 <!-- RESEARCH -->
 <section id="research" class="band-ink">
@@ -373,12 +432,22 @@
   var links = document.getElementById('navlinks');
   btn.addEventListener('click', function () { links.classList.toggle('open'); });
   links.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { links.classList.remove('open'); }); });
+  // copy clone/install commands
+  var copyBtn = document.getElementById('copyCmd');
+  if (copyBtn && navigator.clipboard) {
+    copyBtn.addEventListener('click', function () {
+      navigator.clipboard.writeText(copyBtn.getAttribute('data-copy') || '').then(function () {
+        var prev = copyBtn.textContent; copyBtn.textContent = 'Copied!';
+        setTimeout(function () { copyBtn.textContent = prev; }, 1600);
+      });
+    });
+  }
   // condense nav on scroll
   window.addEventListener('scroll', function () {
     if (window.scrollY > 20) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
   }, { passive: true });
   // scroll-spy
-  var sections = ['about','research','teaching','media','contact'];
+  var sections = ['about','skill','research','teaching','media','contact'];
   var navMap = {};
   links.querySelectorAll('a').forEach(function (a) {
     var id = (a.getAttribute('href') || '').replace('#','');
