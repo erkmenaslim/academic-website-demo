@@ -17,3 +17,6 @@ desktop.ini
 
 # Skill zip is published as a GitHub Release asset, not committed
 academic-website-builder-skill.zip
+
+# Private stats dashboard - local only, opened from disk
+stats.html
